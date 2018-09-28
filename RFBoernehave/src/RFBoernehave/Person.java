@@ -1,6 +1,4 @@
-
-
 package RFBoernehave;
 
-public class Parent {
+public class Person {
 }
