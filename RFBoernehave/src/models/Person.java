@@ -1,4 +1,4 @@
-package RFBoernehave;
+package models;
 
 public class Person {
 
@@ -6,6 +6,13 @@ public class Person {
     private int cprNumber;
     private String firstName;
     private String lastName;
+
+    public Person(int personId, int cprNumber, String firstName, String lastName) {
+        this.personId = personId;
+        this.cprNumber = cprNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public int getPersonId() {
         return personId;

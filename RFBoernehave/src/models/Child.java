@@ -1,4 +1,4 @@
-package RFBoernehave;
+package models;
 
 import java.util.List;
 
@@ -7,6 +7,12 @@ public class Child {
     private String room;
     private int birthDate;
     private List<Parent> parents; //vi skal vælge en type af liste.
+
+    public Child(String room, int birthDate, List<Parent> parents) {
+        this.room = room;
+        this.birthDate = birthDate;
+        this.parents = parents;
+    }
 
     public String getRoom() {
         return room;

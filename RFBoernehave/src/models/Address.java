@@ -1,4 +1,4 @@
-package RFBoernehave;
+package models;
 
 public class Address {
 

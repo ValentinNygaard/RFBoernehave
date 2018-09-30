@@ -1,10 +1,16 @@
-package RFBoernehave;
+package models;
 
 public class Employee {
 
     private int employeeNr;
     private int telephoneNumber;
     private Address employeeAddress;
+
+    public Employee(int employeeNr, int telephoneNumber, Address employeeAddress) {
+        this.employeeNr = employeeNr;
+        this.telephoneNumber = telephoneNumber;
+        this.employeeAddress = employeeAddress;
+    }
 
     public int getEmployeeNr() {
         return employeeNr;
