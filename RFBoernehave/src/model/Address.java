@@ -4,16 +4,26 @@ public class Address {
 
     private int addressID;
     private String streetName;
-    private int streetNumber;
+    private String streetNumber;
     private int postalCode;
     private String city;
+    private String country;
 
-    public Address(int addressID, String streetName, int streetNumber, int postalCode, String city) {
+    public Address(int addressID, String streetName, String streetNumber, int postalCode, String city, String country) {
         this.addressID = addressID;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
         this.city = city;
+        this.country = country;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public int getAddressID() {
@@ -32,11 +42,11 @@ public class Address {
         this.streetName = streetName;
     }
 
-    public int getStreetNumber() {
+    public String getStreetNumber() {
         return streetNumber;
     }
 
-    public void setStreetNumber(int streetNumber) {
+    public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
     }
 
@@ -60,10 +70,15 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "addressID=" + addressID +
-                ", streetName='" + streetName + '\'' +
+                ", streetName='" + streetName +
                 ", streetNumber=" + streetNumber +
                 ", postalCode=" + postalCode +
-                ", city='" + city + '\'' +
+                ", city='" + city  +
+                ", country='" + country  +
                 '}';
+    }
+
+    public String fileToString(){
+       return addressID+ "," +streetName+"," +streetNumber+"," +postalCode+"," +city+"," +country;
     }
 }

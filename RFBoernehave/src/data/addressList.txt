@@ -1,0 +1,4 @@
+1,Peter Bangs Vej,73 3th,2000,Frederiksberg,DK
+2,Tranehusene,62,2620,Albertslund,DK
+3,Keplersgade,11 2tv,2300,København S,DK
+4,Branteviksgatan,14B,21441,Malmø,SE
