@@ -8,14 +8,14 @@ public class InputHandler {
 
     // Simple String input - no checks
 
-    public static String getString() {
+    public String getString() {
         Scanner input = new Scanner(System.in);
         return input.nextLine();
     }
 
     // String input - only accepting inputs specified in ArrayList parameter
 
-    public static String getString(ArrayList<String> options, String errorMessage) {
+    public String getString(ArrayList<String> options, String errorMessage) {
         while(true)
         {
             String input = getString();
@@ -26,7 +26,7 @@ public class InputHandler {
 
     // String input - only accepting inputs specified in Array parameter
 
-    public static String getString(String[] options, String errorMessage) {
+    public String getString(String[] options, String errorMessage) {
         while(true) {
             String input = getString();
             for(String option : options) {
@@ -38,7 +38,7 @@ public class InputHandler {
 
     // Base int input - only check if int
 
-    public static int getInt(String typeErrorMessage) {
+    public int getInt(String typeErrorMessage) {
         Scanner input = new Scanner(System.in);
         while(!input.hasNextInt()) {
             input.nextLine();
@@ -49,7 +49,7 @@ public class InputHandler {
 
     // int input - only accepting ints specified by min and max values
 
-    public static int getInt(int min, int max, String typeErrorMessage, String rangeErrorMessage) {
+    public int getInt(int min, int max, String typeErrorMessage, String rangeErrorMessage) {
         while(true) {
             int value = getInt(typeErrorMessage);
             if(value >= min && value <= max) return value;
@@ -59,7 +59,7 @@ public class InputHandler {
 
     // int input - only accepting ints specified in ArrayList parameter
 
-    public static int getInt(ArrayList<Integer> options, String typeErrorMessage, String valueErrorMessage) {
+    public int getInt(ArrayList<Integer> options, String typeErrorMessage, String valueErrorMessage) {
         while(true) {
             Integer value = (getInt(typeErrorMessage));
             if(options.contains(value)) return value;
@@ -69,7 +69,7 @@ public class InputHandler {
 
     // int input - only accepting ints specified in Array parameter
 
-    public static int getInt(int[] options, String typeErrorMessage, String valueErrorMessage) {
+    public int getInt(int[] options, String typeErrorMessage, String valueErrorMessage) {
         while(true) {
             int value = (getInt(typeErrorMessage));
             for(int opt : options) {
@@ -78,5 +78,4 @@ public class InputHandler {
             System.out.print(valueErrorMessage);
         }
     }
-
 }

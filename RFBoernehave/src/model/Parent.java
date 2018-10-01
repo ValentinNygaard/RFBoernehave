@@ -57,4 +57,8 @@ public class Parent extends Person{
         isCustodyParent = custodyParent;
     }
 
+    public String fileToString(){
+        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," +parentId+"," +parentAddress.getAddressID()+","+telephoneNumber+","+isAddressParent+","+isCustodyParent;
+        }
+
 }

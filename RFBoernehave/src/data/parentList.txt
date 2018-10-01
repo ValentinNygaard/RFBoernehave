@@ -1,0 +1,3 @@
+3,3214567890,Erik,Sørensen,3,2,40618177,true,true
+4,4321567890,Hanne,Sørensen,4,2,43657218,false,true
+5,7654328909,Marianne,Pilverdier,5,5,75468325,true,true

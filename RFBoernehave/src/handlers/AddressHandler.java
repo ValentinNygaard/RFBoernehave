@@ -25,7 +25,8 @@ public class AddressHandler {
     }
 
     private void initAddressList() {
-        Scanner input = new Scanner(FileHandling.readFile("data/addressList.txt"));
+        FileHandling fileHandling = new FileHandling();
+        Scanner input = new Scanner(fileHandling.readFile("data/addressList.txt"));
         while (input.hasNextLine())
         {
             String fileLine = input.nextLine();
@@ -37,13 +38,14 @@ public class AddressHandler {
     }
 
     public void saveAddressList() {
+        FileHandling fileHandling = new FileHandling();
         StringBuilder sb = new StringBuilder();
         for (Address address : addressList) {
             sb.append(address.fileToString());
             sb.append("\n");
         }
         sb.deleteCharAt(sb.length()-1);
-        FileHandling.writeFile(sb.toString(),"data/addressList.txt");
+        fileHandling.writeFile(sb.toString(),"data/addressList.txt");
     }
 
     public void addAddress(int addressID, String streetName, String streetNumber, int postalCode, String city, String country) {

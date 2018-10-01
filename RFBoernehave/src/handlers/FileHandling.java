@@ -11,7 +11,7 @@ public class FileHandling {
 
     // Reading from file
 
-    public static String readFile(String fileName) {
+    public String readFile(String fileName) {
         String fileData = "";
         try
         {
@@ -31,7 +31,7 @@ public class FileHandling {
 
     // Writing to file
 
-    public static void writeFile(String newDataString, String fileName) {
+    public void writeFile(String newDataString, String fileName) {
         try
         {
             PrintStream output = new PrintStream(new File(fileName));
@@ -42,5 +42,4 @@ public class FileHandling {
             System.out.println("File not found");
         }
     }
-
 }

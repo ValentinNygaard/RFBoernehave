@@ -1,6 +1,5 @@
 package handlers;
 
-import model.Address;
 import model.Employee;
 
 import java.util.ArrayList;
@@ -10,8 +9,6 @@ import java.util.Scanner;
 public class EmployeeHandler {
 
     public List<Employee> employeeList = new ArrayList<Employee>();
-
-
     private static EmployeeHandler instance;
 
     public static EmployeeHandler getEmployeeHandler(){
@@ -22,8 +19,9 @@ public class EmployeeHandler {
         return instance;
     }
 
-    private void initAddressList() {
-        Scanner input = new Scanner(FileHandling.readFile("data/employeeList.txt"));
+    private void initEmployeeList() {
+        FileHandling fileHandling = new FileHandling();
+        Scanner input = new Scanner(fileHandling.readFile("data/employeeList.txt"));
         AddressHandler addressHandler = AddressHandler.getAddressHandler(); // singleton fra AddressHandler
         while (input.hasNextLine())
         {
@@ -37,6 +35,4 @@ public class EmployeeHandler {
             employeeList.add(new Employee(personId,cprNumber,components[2],components[3],employeeNr,telephoneNumber,addressHandler.getAddressByID(addressID))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
-
-
 }
