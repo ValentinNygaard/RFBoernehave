@@ -1,8 +1,6 @@
+package model;
 
-
-package models;
-
-public class Parent {
+public class Parent extends Person{
 
     private int parentId;
     private Address parentAddress;
@@ -10,7 +8,8 @@ public class Parent {
     private boolean isAddressParent;
     private boolean isCustodyParent;
 
-    public Parent(int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+    public Parent(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+        super(personId, cprNumber, firstName, lastName);
         this.parentId = parentId;
         this.parentAddress = parentAddress;
         this.telephoneNumber = telephoneNumber;

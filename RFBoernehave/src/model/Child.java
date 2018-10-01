@@ -1,14 +1,15 @@
-package models;
+package model;
 
 import java.util.List;
 
-public class Child {
+public class Child extends Person{
 
     private String room;
     private int birthDate;
     private List<Parent> parents; //vi skal vælge en type af liste.
 
-    public Child(String room, int birthDate, List<Parent> parents) {
+    public Child(int personId, int cprNumber, String firstName, String lastName, String room, int birthDate, List<Parent> parents) {
+        super(personId, cprNumber, firstName, lastName);
         this.room = room;
         this.birthDate = birthDate;
         this.parents = parents;
