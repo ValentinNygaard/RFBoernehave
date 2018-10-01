@@ -91,4 +91,30 @@ public class ParentHandler {
             }
         }
     }
+
+    public Parent searchParentByFirstName(String firstName){
+        Parent parent = null;
+        for(Parent p : parentList)
+        {
+            if(p.getFirstName().equals(firstName))
+            {
+                parent = p;
+            return parent;
+            }
+        }
+        return parent;
+    }
+
+    public Parent searchParentByLastName(String lastName){
+        Parent parent = null;
+        for(Parent p : parentList)
+        {
+            if(p.getLastName().equals(lastName))
+            {
+                parent = p;
+                return parent;
+            }
+        }
+        return parent;
+    }
 }
