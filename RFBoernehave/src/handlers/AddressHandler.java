@@ -62,4 +62,14 @@ public class AddressHandler {
         return false;
     }
 
+    public Address getAddressByID(int addressID) {
+        Address address = null;
+        for (Address a: addressList){
+            if (a.getAddressID() == addressID){
+                address = a;
+                return address;
+            }
+        }
+        return address;
+    }
 }
