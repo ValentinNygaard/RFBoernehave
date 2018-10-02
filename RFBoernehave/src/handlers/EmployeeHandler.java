@@ -16,6 +16,7 @@ public class EmployeeHandler {
     public static EmployeeHandler getEmployeeHandler(){
         if(instance == null){
             EmployeeHandler eh = new EmployeeHandler();
+            eh.initEmployeeList();
             instance = eh;
         }
         return instance;
@@ -30,10 +31,9 @@ public class EmployeeHandler {
             String fileLine = input.nextLine();
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
-            int cprNumber = Integer.parseInt(components[1]);
             int telephoneNumber = Integer.parseInt(components[4]);
             int addressID = Integer.parseInt(components[5]);
-            employeeList.add(new Employee(personId,cprNumber,components[2],components[3],telephoneNumber,addressHandler.getAddressByID(addressID))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            employeeList.add(new Employee(personId,components[1],components[2],components[3],telephoneNumber,addressHandler.getAddressByID(addressID))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
@@ -48,7 +48,7 @@ public class EmployeeHandler {
         fileHandling.writeFile(sb.toString(),"data/employeeList.txt");
     }
 
-    public void addEmployee(int personId, int cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
+    public void addEmployee(int personId, String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
         employeeList.add(new Employee(personId,cprNumber,firstName,lastName,telephoneNumber, employeeAddress));
         // saveAddressList(); kan implementeres
     }
@@ -75,7 +75,7 @@ public class EmployeeHandler {
         return employee;
     }
 
-    public void updateEmployee(int personId, int cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
+    public void updateEmployee(int personId, String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
         for(Employee e : employeeList)
         {
             if (e.getPersonId() == personId)

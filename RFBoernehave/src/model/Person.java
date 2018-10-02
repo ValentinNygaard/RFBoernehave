@@ -3,11 +3,11 @@ package model;
 public abstract class Person {
 
     private int personId;
-    private int cprNumber;
+    private String cprNumber;
     private String firstName;
     private String lastName;
 
-    public Person(int personId, int cprNumber, String firstName, String lastName) {
+    public Person(int personId, String cprNumber, String firstName, String lastName) {
         this.personId = personId;
         this.cprNumber = cprNumber;
         this.firstName = firstName;
@@ -22,11 +22,11 @@ public abstract class Person {
         this.personId = personId;
     }
 
-    public int getCprNumber() {
+    public String getCprNumber() {
         return cprNumber;
     }
 
-    public void setCprNumber(int cprNumber) {
+    public void setCprNumber(String cprNumber) {
         this.cprNumber = cprNumber;
     }
 
@@ -47,6 +47,4 @@ public abstract class Person {
     }
 
     public abstract String fileToString();
-
-    public abstract String toString();
 }

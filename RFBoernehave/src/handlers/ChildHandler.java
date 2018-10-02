@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ChildHandler {/*
+public class ChildHandler {
     public List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
 
     public static ChildHandler getChildHandler(){
         if(instance == null){
             ChildHandler ch = new ChildHandler();
+            ch.initChildList();
             instance = ch;
         }
         return instance;
@@ -23,17 +24,14 @@ public class ChildHandler {/*
     private void initChildList() {
         FileHandling fileHandling = new FileHandling();
         Scanner input = new Scanner(fileHandling.readFile("data/childList.txt"));
-        AddressHandler addressHandler = AddressHandler.getAddressHandler(); // singleton fra AddressHandler
         while (input.hasNextLine())
         {
             String fileLine = input.nextLine();
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
-            int cprNumber = Integer.parseInt(components[1]);
-            int birthDate = Integer.parseInt(components[5]);
-            String parentStringList = components[6];
+            String parentStringList = components[5];
 
-            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parseParentString(parentStringList))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            childList.add(new Child(personId,components[1],components[2],components[3],components[4], parseParentString(parentStringList))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
@@ -42,14 +40,21 @@ public class ChildHandler {/*
         ArrayList<Parent> parentArrayList = new ArrayList<>();
         Scanner input = new Scanner(parentStringList);
         int count = 0;
-        while (input.hasNext())
+        String[] components = parentStringList.split(":");
+        for(int i = 0; i < components.length; i++)
         {
-            String[] components = parentStringList.split(":");
-            int parentId = Integer.parseInt(components[count]);
-            count++;
+            int parentId = Integer.parseInt(components[i]);
             parentArrayList.add(ph.getParentByID(parentId));
         }
         return parentArrayList;
+    }
+
+    public void printList()
+    {
+        for(Child c : childList)
+        {
+            System.out.println(c.fileToString());
+        }
     }
 
    /* public void saveParentList() {

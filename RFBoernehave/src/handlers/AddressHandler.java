@@ -19,6 +19,7 @@ public class AddressHandler {
     public static AddressHandler getAddressHandler(){
         if(instance == null){
             AddressHandler ah = new AddressHandler();
+            ah.initAddressList();
             instance = ah;
         }
         return instance;

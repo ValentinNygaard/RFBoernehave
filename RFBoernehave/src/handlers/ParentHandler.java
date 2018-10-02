@@ -15,6 +15,7 @@ public class ParentHandler {
     public static ParentHandler getParentHandler(){
         if(instance == null){
             ParentHandler ph = new ParentHandler();
+            ph.initParentList();
             instance = ph;
         }
         return instance;
@@ -29,12 +30,11 @@ public class ParentHandler {
             String fileLine = input.nextLine();
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
-            int cprNumber = Integer.parseInt(components[1]);
             int addressID = Integer.parseInt(components[4]);
             int telephoneNumber = Integer.parseInt(components[5]);
             boolean isAddressParent = Boolean.parseBoolean(components[6]);
             boolean isCustodyParent = Boolean.parseBoolean(components[7]);
-            parentList.add(new Parent(personId,cprNumber,components[2],components[3],addressHandler.getAddressByID(addressID),telephoneNumber,isAddressParent,isCustodyParent)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            parentList.add(new Parent(personId,components[1],components[2],components[3],addressHandler.getAddressByID(addressID),telephoneNumber,isAddressParent,isCustodyParent)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
@@ -49,7 +49,7 @@ public class ParentHandler {
         fileHandling.writeFile(sb.toString(),"data/parentList.txt");
     }
 
-    public void addParent(int personId, int cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+    public void addParent(int personId, String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
         parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         // saveAddressList(); kan implementeres
     }
@@ -65,7 +65,7 @@ public class ParentHandler {
         return false;
     }
 
-    public Parent getAddressByID(int personId) {
+    public Parent getParentByID(int personId) {
         Parent parent = null;
         for (Parent p: parentList){
             if (p.getPersonId() == personId){
@@ -76,7 +76,7 @@ public class ParentHandler {
         return parent;
     }
 
-    public void updateParent(int personId, int cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+    public void updateParent(int personId, String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
            for(Parent p : parentList)
         {
             if (p.getPersonId() == personId)
