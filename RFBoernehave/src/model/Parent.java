@@ -2,27 +2,17 @@ package model;
 
 public class Parent extends Person{
 
-    private int parentId;
     private Address parentAddress;
     private int telephoneNumber;
     private boolean isAddressParent;
     private boolean isCustodyParent;
 
-    public Parent(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+    public Parent(int personId, int cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
         super(personId, cprNumber, firstName, lastName);
-        this.parentId = parentId;
         this.parentAddress = parentAddress;
         this.telephoneNumber = telephoneNumber;
         this.isAddressParent = isAddressParent;
         this.isCustodyParent = isCustodyParent;
-    }
-
-    public int getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
     }
 
     public Address getParentAddress() {
@@ -58,7 +48,7 @@ public class Parent extends Person{
     }
 
     public String fileToString(){
-        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," +parentId+"," +parentAddress.getAddressID()+","+telephoneNumber+","+isAddressParent+","+isCustodyParent;
+        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," +parentAddress.getAddressID()+","+telephoneNumber+","+isAddressParent+","+isCustodyParent;
         }
 
 }

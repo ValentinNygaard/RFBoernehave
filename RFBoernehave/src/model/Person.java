@@ -1,6 +1,6 @@
 package model;
 
-public class Person {
+public abstract class Person {
 
     private int personId;
     private int cprNumber;
@@ -45,4 +45,8 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public abstract String fileToString();
+
+    public abstract String toString();
 }

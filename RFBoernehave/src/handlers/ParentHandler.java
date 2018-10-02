@@ -30,12 +30,11 @@ public class ParentHandler {
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
             int cprNumber = Integer.parseInt(components[1]);
-            int parentId = Integer.parseInt(components[4]);
-            int addressID = Integer.parseInt(components[5]);
-            int telephoneNumber = Integer.parseInt(components[6]);
-            boolean isAddressParent = Boolean.parseBoolean(components[7]);
-            boolean isCustodyParent = Boolean.parseBoolean(components[8]);
-            parentList.add(new Parent(personId,cprNumber,components[2],components[3],parentId,addressHandler.getAddressByID(addressID),telephoneNumber,isAddressParent,isCustodyParent)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            int addressID = Integer.parseInt(components[4]);
+            int telephoneNumber = Integer.parseInt(components[5]);
+            boolean isAddressParent = Boolean.parseBoolean(components[6]);
+            boolean isCustodyParent = Boolean.parseBoolean(components[7]);
+            parentList.add(new Parent(personId,cprNumber,components[2],components[3],addressHandler.getAddressByID(addressID),telephoneNumber,isAddressParent,isCustodyParent)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
@@ -50,15 +49,15 @@ public class ParentHandler {
         fileHandling.writeFile(sb.toString(),"data/parentList.txt");
     }
 
-    public void addParent(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
-        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentId,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
+    public void addParent(int personId, int cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         // saveAddressList(); kan implementeres
     }
 
-    public boolean deleteParent(int parentId) {
+    public boolean deleteParent(int personId) {
         boolean delete = false;
         for (Parent p: parentList){
-            if (p.getParentId() == parentId){
+            if (p.getPersonId() == personId){
                 parentList.remove(parentList.indexOf(p));
                 return true;
             }
@@ -66,10 +65,10 @@ public class ParentHandler {
         return false;
     }
 
-    public Parent getAddressByID(int parentId) {
+    public Parent getAddressByID(int personId) {
         Parent parent = null;
         for (Parent p: parentList){
-            if (p.getParentId() == parentId){
+            if (p.getPersonId() == personId){
                 parent = p;
                 return parent;
             }
@@ -77,10 +76,10 @@ public class ParentHandler {
         return parent;
     }
 
-    public void updateParent(int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+    public void updateParent(int personId, int cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
            for(Parent p : parentList)
         {
-            if (p.getParentId() == parentId)
+            if (p.getPersonId() == personId)
             {
                 p.setCprNumber(cprNumber);
                 p.setFirstName(firstName);

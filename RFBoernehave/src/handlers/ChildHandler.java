@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ChildHandler {
+public class ChildHandler {/*
     public List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
 
@@ -128,5 +128,5 @@ public class ChildHandler {
             }
         }
         return parent;
-    }
+    }*/
 }

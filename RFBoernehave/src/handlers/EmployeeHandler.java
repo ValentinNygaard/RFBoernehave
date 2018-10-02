@@ -31,8 +31,8 @@ public class EmployeeHandler {
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
             int cprNumber = Integer.parseInt(components[1]);
-            int telephoneNumber = Integer.parseInt(components[5]);
-            int addressID = Integer.parseInt(components[6]);
+            int telephoneNumber = Integer.parseInt(components[4]);
+            int addressID = Integer.parseInt(components[5]);
             employeeList.add(new Employee(personId,cprNumber,components[2],components[3],telephoneNumber,addressHandler.getAddressByID(addressID))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
