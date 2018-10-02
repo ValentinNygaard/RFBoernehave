@@ -61,22 +61,23 @@ public class ChildHandler {
         }
     }
 
-   /* public void saveParentList() {
+    public void saveChildList() {
         FileHandling fileHandling = new FileHandling();
         StringBuilder sb = new StringBuilder();
-        for (Parent parent : parentList) {
-            sb.append(parent.fileToString());
+        for (Child child : childList) {
+            sb.append(child.fileToString());
             sb.append("\n");
         }
         sb.deleteCharAt(sb.length()-1);
-        fileHandling.writeFile(sb.toString(),"data/addressList.txt");
+        fileHandling.writeFile(sb.toString(),"data/childList.txt");
     }
 
-    public void addParent(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+
+    public void addChild(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
         parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentId,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         // saveAddressList(); kan implementeres
     }
-
+    /*
     public boolean deleteParent(int parentId) {
         boolean delete = false;
         for (Parent p: parentList){

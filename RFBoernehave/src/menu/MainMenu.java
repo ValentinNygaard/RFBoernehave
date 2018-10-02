@@ -10,9 +10,15 @@ public class MainMenu {
     public void start()
     {
         output.startMenu();
-        int choice = input.getInt(1,8,"Du skal skrive et tal ", "tallet skal være imellem 1 og 8");
+        int choice = input.getInt(0,8,"Du skal skrive et tal ", "tallet skal være imellem 0 og 8");
 
-        if(choice == 1)
+        if(choice == 0)
+        {
+            SystemShutDown ssd = new SystemShutDown();
+            System.out.println("Nu lukker systemet ned ");
+            ssd.shutDown();
+        }
+        else if(choice == 1)
         {
             RegisterChildMenu rg = new RegisterChildMenu();
             rg.registerChildMenu();

@@ -16,6 +16,7 @@ public class Output {
     public void startMenu()
     {
         printHeader();
+        System.out.println("0: Gem ændringer og luk systemet ned:");
         System.out.println("1: indskriv barn:");
         System.out.println("2: Sæt barn på venteliste:");
         System.out.println("3: se vagtplan:");
@@ -24,5 +25,11 @@ public class Output {
         System.out.println("6: administrer person:");
         System.out.println("7: administrer vagtplan:");
         System.out.println("8: administrer venteliste:");
+    }
+
+    public void registerChildMenu(){
+        System.out.println("0: Retur til hovedmenu:");
+        System.out.println("1: Opret nyt barn:");
+        System.out.println("2: Indskriv barn fra venteliste:");
     }
 }
