@@ -73,72 +73,59 @@ public class ChildHandler {
     }
 
 
-    public void addChild(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
-        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentId,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
+    public void addChild(int personId, String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
+        childList.add(new Child(personId,cprNumber,firstName,lastName,room,parents));
         // saveAddressList(); kan implementeres
     }
-    /*
-    public boolean deleteParent(int parentId) {
+
+    public boolean deleteChild(int personId) {
         boolean delete = false;
-        for (Parent p: parentList){
-            if (p.getParentId() == parentId){
-                parentList.remove(parentList.indexOf(p));
+        for (Child c: childList){
+            if (c.getPersonId() == personId){
+                childList.remove(childList.indexOf(c));
                 return true;
             }
         }
         return false;
     }
 
-    public Parent getAddressByID(int parentId) {
-        Parent parent = null;
-        for (Parent p: parentList){
-            if (p.getParentId() == parentId){
-                parent = p;
-                return parent;
-            }
-        }
-        return parent;
-    }
-
-    public void updateParent(int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
-        for(Parent p : parentList)
+    public void updateChild(int personId ,String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
+        for(Child c : childList)
         {
-            if (p.getParentId() == parentId)
+            if (c.getPersonId() == personId)
             {
-                p.setCprNumber(cprNumber);
-                p.setFirstName(firstName);
-                p.setLastName(lastName);
-                p.setParentAddress(parentAddress);
-                p.setTelephoneNumber(telephoneNumber);
-                p.setAddressParent(isAddressParent);
-                p.setCustodyParent(isCustodyParent);
+                c.setCprNumber(cprNumber);
+                c.setFirstName(firstName);
+                c.setLastName(lastName);
+                c.setRoom(room);
+                c.setParents(parents);
             }
         }
     }
 
-    public Parent searchParentByFirstName(String firstName){
-        Parent parent = null;
-        for(Parent p : parentList)
+    public Child searchChildByFirstName(String firstName){
+        Child child = null;
+        for(Child c : childList)
         {
-            if(p.getFirstName().equals(firstName))
+            if(c.getFirstName().equals(firstName))
             {
-                parent = p;
-                return parent;
+                child = c;
+                return child;
             }
         }
-        return parent;
+        return child;
     }
 
-    public Parent searchParentByLastName(String lastName){
-        Parent parent = null;
-        for(Parent p : parentList)
+    public Child searchChildByLastName(String lastName){
+        Child child = null;
+        for(Child c : childList)
         {
-            if(p.getLastName().equals(lastName))
+            if(c.getLastName().equals(lastName))
             {
-                parent = p;
-                return parent;
+                child = c;
+                return child;
             }
         }
-        return parent;
-    }*/
+        return child;
+    }
 }
