@@ -3,12 +3,13 @@ package handlers;
 import model.Address;
 import model.Parent;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ParentHandler {
 
-    public List<Parent> parentList = new ArrayList<Parent>();
+    public List<Parent> parentList = new ArrayList<>();
     private static ParentHandler instance;
 
     public static ParentHandler getParentHandler(){
@@ -46,7 +47,7 @@ public class ParentHandler {
             sb.append("\n");
         }
         sb.deleteCharAt(sb.length()-1);
-        fileHandling.writeFile(sb.toString(),"data/addressList.txt");
+        fileHandling.writeFile(sb.toString(),"data/parentList.txt");
     }
 
     public void addParent(int personId, int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {

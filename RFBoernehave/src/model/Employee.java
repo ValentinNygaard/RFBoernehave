@@ -2,23 +2,13 @@ package model;
 
 public class Employee extends Person{
 
-    private int employeeNr;
     private int telephoneNumber;
     private Address employeeAddress;
 
-    public Employee(int personId, int cprNumber, String firstName, String lastName, int employeeNr, int telephoneNumber, Address employeeAddress) {
+    public Employee(int personId, int cprNumber, String firstName, String lastName, int telephoneNumber, Address employeeAddress) {
         super(personId, cprNumber, firstName, lastName);
-        this.employeeNr = employeeNr;
         this.telephoneNumber = telephoneNumber;
         this.employeeAddress = employeeAddress;
-    }
-
-    public int getEmployeeNr() {
-        return employeeNr;
-    }
-
-    public void setEmployeeNr(int employeeNr) {
-        this.employeeNr = employeeNr;
     }
 
     public int getTelephoneNumber() {
@@ -35,5 +25,10 @@ public class Employee extends Person{
 
     public void setEmployeeAddress(Address employeeAddress) {
         this.employeeAddress = employeeAddress;
+    }
+
+    public String fileToString()
+    {
+        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," + telephoneNumber + "," + employeeAddress.getAddressID();
     }
 }
