@@ -1,27 +1,28 @@
 package handlers;
 
 import model.Address;
+import model.Child;
 import model.Parent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ParentHandler {
+public class ChildHandler {
+    public List<Child> childList = new ArrayList<Child>();
+    private static ChildHandler instance;
 
-    public List<Parent> parentList = new ArrayList<Parent>();
-    private static ParentHandler instance;
-
-    public static ParentHandler getParentHandler(){
+    public static ChildHandler getChildHandler(){
         if(instance == null){
-            ParentHandler ph = new ParentHandler();
-            instance = ph;
+            ChildHandler ch = new ChildHandler();
+            instance = ch;
         }
         return instance;
     }
-
-    private void initParentList() {
+//(int personId, int cprNumber, String firstName, String lastName, String room, int birthDate, List<Parent> parents)
+    private void initChildList() {
         FileHandling fileHandling = new FileHandling();
-        Scanner input = new Scanner(fileHandling.readFile("data/parentList.txt"));
+        Scanner input = new Scanner(fileHandling.readFile("data/childList.txt"));
         AddressHandler addressHandler = AddressHandler.getAddressHandler(); // singleton fra AddressHandler
         while (input.hasNextLine())
         {
@@ -29,13 +30,24 @@ public class ParentHandler {
             String[] components = fileLine.split(",");
             int personId = Integer.parseInt(components[0]);
             int cprNumber = Integer.parseInt(components[1]);
-            int parentId = Integer.parseInt(components[4]);
-            int addressID = Integer.parseInt(components[5]);
-            int telephoneNumber = Integer.parseInt(components[6]);
-            boolean isAddressParent = Boolean.parseBoolean(components[7]);
-            boolean isCustodyParent = Boolean.parseBoolean(components[8]);
-            parentList.add(new Parent(personId,cprNumber,components[2],components[3],parentId,addressHandler.getAddressByID(addressID),telephoneNumber,isAddressParent,isCustodyParent)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            int birthDate = Integer.parseInt(components[5]);
+            String parentStringList = components[6];
+
+            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parentStringList)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
+    }
+
+    private ArrayList<Parent> parseParentString(String parentString) {
+        Scanner input = new Scanner(parentString);
+        while (input.hasNext())
+        {
+            String fileLine = input.nextLine();
+            String[] components = fileLine.split(":");
+            int parentInt =
+
+            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parentStringList)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+        }
+
     }
 
     public void saveParentList() {
@@ -77,7 +89,7 @@ public class ParentHandler {
     }
 
     public void updateParent(int cprNumber, String firstName, String lastName, int parentId, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
-           for(Parent p : parentList)
+        for(Parent p : parentList)
         {
             if (p.getParentId() == parentId)
             {
@@ -99,7 +111,7 @@ public class ParentHandler {
             if(p.getFirstName().equals(firstName))
             {
                 parent = p;
-            return parent;
+                return parent;
             }
         }
         return parent;
