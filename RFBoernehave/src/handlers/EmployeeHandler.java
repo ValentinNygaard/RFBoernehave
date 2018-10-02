@@ -13,10 +13,13 @@ public class EmployeeHandler {
     public List<Employee> employeeList = new ArrayList<Employee>();
     private static EmployeeHandler instance;
 
+    private EmployeeHandler(){
+        initEmployeeList();
+    }
+
     public static EmployeeHandler getEmployeeHandler(){
         if(instance == null){
             EmployeeHandler eh = new EmployeeHandler();
-            eh.initEmployeeList();
             instance = eh;
         }
         return instance;
@@ -113,6 +116,14 @@ public class EmployeeHandler {
             }
         }
         return employee;
+    }
+
+    public void printList()
+    {
+        for(Employee e : employeeList)
+        {
+            System.out.println(e.fileToString());
+        }
     }
 }
 

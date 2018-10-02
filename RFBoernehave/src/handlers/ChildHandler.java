@@ -12,10 +12,14 @@ public class ChildHandler {
     public List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
 
+    private ChildHandler()
+    {
+        initChildList();
+    }
+
     public static ChildHandler getChildHandler(){
         if(instance == null){
             ChildHandler ch = new ChildHandler();
-            ch.initChildList();
             instance = ch;
         }
         return instance;

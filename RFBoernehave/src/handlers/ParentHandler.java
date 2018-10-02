@@ -12,10 +12,14 @@ public class ParentHandler {
     public List<Parent> parentList = new ArrayList<>();
     private static ParentHandler instance;
 
+    private ParentHandler()
+    {
+        initParentList();
+    }
+
     public static ParentHandler getParentHandler(){
         if(instance == null){
             ParentHandler ph = new ParentHandler();
-            ph.initParentList();
             instance = ph;
         }
         return instance;
@@ -116,5 +120,13 @@ public class ParentHandler {
             }
         }
         return parent;
+    }
+
+    public void printList()
+    {
+        for(Parent p : parentList)
+        {
+            System.out.println(p.fileToString());
+        }
     }
 }

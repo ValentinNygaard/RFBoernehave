@@ -66,7 +66,7 @@ public class Address {
         this.city = city;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Address{" +
                 "addressID=" + addressID +
@@ -76,7 +76,7 @@ public class Address {
                 ", city='" + city  +
                 ", country='" + country  +
                 '}';
-    }
+    }*/
 
     public String fileToString(){
        return addressID+ "," +streetName+"," +streetNumber+"," +postalCode+"," +city+"," +country;

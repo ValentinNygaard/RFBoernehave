@@ -19,7 +19,6 @@ public class AddressHandler {
     public static AddressHandler getAddressHandler(){
         if(instance == null){
             AddressHandler ah = new AddressHandler();
-            ah.initAddressList();
             instance = ah;
         }
         return instance;
@@ -74,5 +73,13 @@ public class AddressHandler {
             }
         }
         return address;
+    }
+
+    public void printList()
+    {
+        for(Address a : addressList)
+        {
+            System.out.println(a.fileToString());
+        }
     }
 }
