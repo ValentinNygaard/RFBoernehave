@@ -66,7 +66,7 @@ public class ParentHandler {
         return false;
     }
 
-    public Parent getAddressByID(int parentId) {
+    public Parent getParentByID(int parentId) {
         Parent parent = null;
         for (Parent p: parentList){
             if (p.getParentId() == parentId){
