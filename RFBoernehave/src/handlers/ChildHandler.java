@@ -33,24 +33,26 @@ public class ChildHandler {/*
             int birthDate = Integer.parseInt(components[5]);
             String parentStringList = components[6];
 
-            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parentStringList)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parseParentString(parentStringList))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
-    private ArrayList<Parent> parseParentString(String parentString) {
-        Scanner input = new Scanner(parentString);
+    private ArrayList<Parent> parseParentString(String parentStringList) {
+        ParentHandler ph = ParentHandler.getParentHandler();
+        ArrayList<Parent> parentArrayList = new ArrayList<>();
+        Scanner input = new Scanner(parentStringList);
+        int count = 0;
         while (input.hasNext())
         {
-            String fileLine = input.nextLine();
-            String[] components = fileLine.split(":");
-            int parentInt =
-
-            childList.add(new Child(personId,cprNumber,components[2],components[3],components[4],birthDate, parentStringList)); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            String[] components = parentStringList.split(":");
+            int parentId = Integer.parseInt(components[count]);
+            count++;
+            parentArrayList.add(ph.getParentByID(parentId));
         }
-
+        return parentArrayList;
     }
 
-    public void saveParentList() {
+   /* public void saveParentList() {
         FileHandling fileHandling = new FileHandling();
         StringBuilder sb = new StringBuilder();
         for (Parent parent : parentList) {
