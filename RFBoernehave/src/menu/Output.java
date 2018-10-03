@@ -16,20 +16,49 @@ public class Output {
     public void startMenu()
     {
         printHeader();
+        System.out.println("HOVEDMENU");
+        System.out.println();
         System.out.println("0: Gem ændringer og luk systemet ned:");
-        System.out.println("1: indskriv barn:");
+        System.out.println();
+        System.out.println("1: Indskriv barn:");
         System.out.println("2: Sæt barn på venteliste:");
-        System.out.println("3: se vagtplan:");
-        System.out.println("4: find person:");
-        System.out.println("5: se telefonliste:");
-        System.out.println("6: administrer person:");
-        System.out.println("7: administrer vagtplan:");
-        System.out.println("8: administrer venteliste:");
+        System.out.println("3: Se vagtplan:");
+        System.out.println("4: Find person:");
+        System.out.println("5: Se telefonliste:");
+        System.out.println();
+        System.out.println("6: Administrer person:");
+        System.out.println("7: Administrer vagtplan:");
+        System.out.println("8: Administrer venteliste:");
+        System.out.println();
     }
 
     public void registerChildMenu(){
+        System.out.println();
+        System.out.println("INDSKRIV BARN");
+        System.out.println();
         System.out.println("0: Retur til hovedmenu:");
+        System.out.println();
         System.out.println("1: Opret nyt barn:");
         System.out.println("2: Indskriv barn fra venteliste:");
+        System.out.println();
     }
+
+    public void registerChild(){
+        System.out.println();
+        System.out.println("OPRET NYT BARN");
+    }
+
+    public void askChildInfo(){
+        System.out.println();
+        System.out.println("Indtast oplysninger om barnet: ");
+        System.out.println();
+    }
+
+    public void askParentInfo(){
+        System.out.println();
+        System.out.println("Indtast oplysninger om forælder: ");
+        System.out.println();
+    }
+
+
 }

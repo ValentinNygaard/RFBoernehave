@@ -1,2 +1,2 @@
-5,43211234,Johnny,Van,Gul,3:4
-6,63756376,Malthe,Sørensen,Rød,3:4
+1,43211234,Johnny,Van,Gul,3:4
+2,63756376,Malthe,Sørensen,Rød,3:4

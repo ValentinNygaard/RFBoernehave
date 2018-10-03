@@ -1,5 +1,7 @@
 package handlers;
 
+import menu.Output;
+import menu.UserDialog;
 import model.Address;
 import model.Parent;
 import java.util.ArrayList;
@@ -56,6 +58,23 @@ public class ParentHandler {
     public void addParent(int personId, String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
         parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         // saveAddressList(); kan implementeres
+    }
+
+    public Parent userCreate() {
+        UserDialog input = new UserDialog();
+        Output output = new Output();
+        output.askParentInfo();
+        int personId = parentList.get(parentList.size()-1).getPersonId()+1;
+        String firstName = input.getFirstName();
+        String lastName = input.getLastName();
+        String cprNumber = input.getCprNumber();
+        int telephoneNumber = input.getTelephoneNumber();
+        AddressHandler ah = AddressHandler.getAddressHandler();
+        Address parentAddress = ah.userCreate();
+        boolean isAddressParent = false;
+        boolean isCustodyParent = false;
+        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
+        return parentList.get(parentList.size()-1);
     }
 
     public boolean deleteParent(int personId) {

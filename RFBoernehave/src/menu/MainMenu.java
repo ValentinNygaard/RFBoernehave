@@ -5,19 +5,14 @@ import handlers.*;
 public class MainMenu {
 
     Output output = new Output();
-    InputHandler input = new InputHandler();
+    UserDialog ud = new UserDialog();
 
     public void start()
     {
         output.startMenu();
-        int choice = input.getInt(0,8,"Du skal skrive et tal ", "tallet skal være imellem 0 og 8");
+        int choice = ud.getChoice(0,8);
 
-        if(choice == 0)
-        {
-            SystemShutDown ssd = new SystemShutDown();
-            System.out.println("Nu lukker systemet ned ");
-            ssd.shutDown();
-        }
+        if(choice == 0) { } // Returns to main and continues with System Shutdown
         else if(choice == 1)
         {
             RegisterChildMenu rg = new RegisterChildMenu();

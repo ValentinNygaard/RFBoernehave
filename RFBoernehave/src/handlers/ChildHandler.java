@@ -1,5 +1,7 @@
 package handlers;
 
+import menu.Output;
+import menu.UserDialog;
 import model.Address;
 import model.Child;
 import model.Parent;
@@ -24,7 +26,7 @@ public class ChildHandler {
         }
         return instance;
     }
-//(int personId, int cprNumber, String firstName, String lastName, String room, int birthDate, List<Parent> parents)
+
     private void initChildList() {
         FileHandling fileHandling = new FileHandling();
         Scanner input = new Scanner(fileHandling.readFile("data/childList.txt"));
@@ -77,6 +79,25 @@ public class ChildHandler {
         childList.add(new Child(personId,cprNumber,firstName,lastName,room,parents));
         // saveAddressList(); kan implementeres
     }
+
+    public Child userCreate() {
+        UserDialog input = new UserDialog();
+        Output output = new Output();
+        output.askChildInfo();
+        int personId = childList.get(childList.size()-1).getPersonId()+1;
+        String firstName = input.getFirstName();
+        String lastName = input.getLastName();
+        String cprNumber = input.getCprNumber();
+        int telephoneNumber = input.getTelephoneNumber();
+        String room = "";
+        ArrayList<Parent> parentList = new ArrayList<>();
+        ParentHandler ph = ParentHandler.getParentHandler();
+        parentList.add(ph.userCreate());
+        childList.add(new Child(personId,cprNumber,firstName,lastName,room,parentList));
+        return childList.get(childList.size()-1);
+    }
+
+
 
     public boolean deleteChild(int personId) {
         boolean delete = false;
