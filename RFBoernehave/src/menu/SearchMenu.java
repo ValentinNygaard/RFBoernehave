@@ -12,7 +12,7 @@ public class SearchMenu {
     public void findPersonMenu()
     {
         Output output = new Output();
-        output.findPersonMenu();
+        output.findParentMenu();
         int choice = input.getInt(0,3,"Du skal skrive et tal ", "tallet skal være imellem 0 og 3");
 
         if(choice == 0)

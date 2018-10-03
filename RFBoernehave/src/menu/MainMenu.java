@@ -41,7 +41,7 @@ public class MainMenu {
         else if(choice == 6)
         {
             PersonCrudMenu pm = new PersonCrudMenu();
-            pm.personCrudMenu();
+            pm.start();
         }
         else if(choice == 7)
         {

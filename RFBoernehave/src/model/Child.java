@@ -1,11 +1,12 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Child extends Person{
 
     private String room;
-    private List<Parent> parents; //vi skal vælge en type af liste.
+    private List<Parent> parents = new ArrayList<>(); //vi skal vælge en type af liste.
 
     public Child(int personId, String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
         super(personId, cprNumber, firstName, lastName);
@@ -36,9 +37,12 @@ public class Child extends Person{
 
     public String printParents(List<Parent> parents)
     {
+        System.out.println("List size: " + parents.size());
+        System.out.println("Hej: " + parents.get(0).getFirstName());
         StringBuilder sb = new StringBuilder();
         for(Parent p : parents)
         {
+            System.out.println(p.getPersonId());
             sb.append(p.getPersonId());
             sb.append(":");
         }
