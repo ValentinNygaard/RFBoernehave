@@ -28,8 +28,54 @@ public class Output {
     }
 
     public void registerChildMenu(){
+        printHeader();
         System.out.println("0: Retur til hovedmenu:");
         System.out.println("1: Opret nyt barn:");
         System.out.println("2: Indskriv barn fra venteliste:");
+    }
+
+    public void telephoneListMenu()
+    {
+        printHeader();
+        System.out.println("0: Retur til hovedmenu: ");
+        System.out.println("1: Telefonliste for medarbejdere: ");
+        System.out.println("2: Telefonliste over børnenes forældre: ");
+    }
+
+    public void findPersonMenu()
+    {
+        printHeader();
+        System.out.println("0: Retur til hovedmenu: ");
+        System.out.println("1: find data om et barn: ");
+        System.out.println("2: find data om en  medarbejder: ");
+        System.out.println("3: fin data om en forældre: ");
+    }
+
+    public void findChildMenu()
+    {
+        System.out.println("1: søg på barns fornavn:");
+        System.out.println("2: søg på barns efternavn:");
+    }
+
+    public void findEmployeeMenu()
+    {
+        System.out.println("1: søg på medarbejders fornavn:");
+        System.out.println("2: søg på medarbejders efternavn:");
+    }
+
+    public void findParentMenu()
+    {
+        System.out.println("1: søg på forældres fornavn:");
+        System.out.println("2: søg på forældres efternavn:");
+    }
+
+    public void inputFirstName()
+    {
+        System.out.println("skriv fornavnet der skal søges på");
+    }
+
+    public void inputLastName()
+    {
+        System.out.println("skriv efternavnet der skal søges på");
     }
 }

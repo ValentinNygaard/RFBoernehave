@@ -128,4 +128,13 @@ public class ChildHandler {
         }
         return child;
     }
+
+    public void printTelephoneChildParentList()
+    {
+        for(Child c : childList)
+        {
+            System.out.println("Childs name: " + c.getFirstName() + " " + c.getLastName());
+            System.out.println("        " + c.printParents(c.getParents()));
+        }
+    }
 }
