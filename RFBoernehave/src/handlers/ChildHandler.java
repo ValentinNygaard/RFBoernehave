@@ -22,7 +22,6 @@ public class ChildHandler {
     public static ChildHandler getChildHandler(){
         if(instance == null){
             ChildHandler ch = new ChildHandler();
-            ch.initChildList();
             instance = ch;
         }
         return instance;
@@ -156,7 +155,7 @@ public class ChildHandler {
         for(Child c : childList)
         {
             System.out.println("Childs name: " + c.getFirstName() + " " + c.getLastName());
-            System.out.println("        " + c.printParents(c.getParents()));
+            System.out.println(c.printParentsTelephone(c.getParents()));
         }
     }
 }

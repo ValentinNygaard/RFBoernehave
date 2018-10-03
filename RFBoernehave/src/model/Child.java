@@ -37,16 +37,23 @@ public class Child extends Person{
 
     public String printParents(List<Parent> parents)
     {
-        System.out.println("List size: " + parents.size());
-        System.out.println("Hej: " + parents.get(0).getFirstName());
         StringBuilder sb = new StringBuilder();
         for(Parent p : parents)
         {
-            System.out.println(p.getPersonId());
             sb.append(p.getPersonId());
             sb.append(":");
         }
         sb.deleteCharAt(sb.length()-1);
         return sb.toString();
+    }
+
+    public String printParentsTelephone(List<Parent> parents)
+    {
+        String s ="";
+        for(Parent p : parents)
+        {
+            s = s + "        "+ (p.getFirstName() + " " + p.getLastName() + " Telefon nummer " + p.getTelephoneNumber()) + "\n";
+        }
+        return s;
     }
 }
