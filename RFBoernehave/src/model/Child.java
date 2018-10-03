@@ -37,12 +37,9 @@ public class Child extends Person{
 
     public String printParents(List<Parent> parents)
     {
-        System.out.println("List size: " + parents.size());
-        System.out.println("Hej: " + parents.get(0).getFirstName());
         StringBuilder sb = new StringBuilder();
         for(Parent p : parents)
         {
-            System.out.println(p.getPersonId());
             sb.append(p.getPersonId());
             sb.append(":");
         }

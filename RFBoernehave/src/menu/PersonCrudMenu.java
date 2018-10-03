@@ -11,8 +11,8 @@ import model.Parent;
 public class PersonCrudMenu {
     InputHandler input = new InputHandler();
 
-    public void start(){
-        personCrudMenu();
+    public void personCrudMenu(){
+        start();
         int choice = input.getInt(0,8,"Du skal skrive et tal ", "tallet skal være imellem 0 og 8");
 
         if(choice == 0)
@@ -122,7 +122,7 @@ public class PersonCrudMenu {
         }
     }
 
-    public void personCrudMenu()
+    public void start()
     {
         System.out.println("Hvem vil du ændre?");
         System.out.println("0: Gå tilbage");

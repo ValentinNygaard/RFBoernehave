@@ -22,7 +22,6 @@ public class ChildHandler {
     public static ChildHandler getChildHandler(){
         if(instance == null){
             ChildHandler ch = new ChildHandler();
-            ch.initChildList();
             instance = ch;
         }
         return instance;
