@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ParentHandler {
 
-    public List<Parent> parentList = new ArrayList<>();
+    private List<Parent> parentList = new ArrayList<>();
     private static ParentHandler instance;
 
     private ParentHandler()

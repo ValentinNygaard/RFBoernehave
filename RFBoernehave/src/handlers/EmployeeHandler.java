@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class EmployeeHandler {
 
-    public List<Employee> employeeList = new ArrayList<Employee>();
+    private List<Employee> employeeList = new ArrayList<Employee>();
     private static EmployeeHandler instance;
 
     private EmployeeHandler(){

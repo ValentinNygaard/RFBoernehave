@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class AddressHandler {
 
-    public List<Address> addressList = new ArrayList<Address>();
+    private List<Address> addressList = new ArrayList<Address>();
 
     private static AddressHandler instance;
 

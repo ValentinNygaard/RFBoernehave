@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ChildHandler {
-    public List<Child> childList = new ArrayList<Child>();
+    private List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
 
     private ChildHandler()
