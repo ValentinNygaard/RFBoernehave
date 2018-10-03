@@ -60,5 +60,41 @@ public class Output {
         System.out.println();
     }
 
+    public void askEmployeeInfo(){
+        System.out.println();
+        System.out.println("Indtast oplysninger om medarbejder: ");
+        System.out.println();
+    }
+
+    public void findChildMenu()
+    {
+        System.out.println("1: søg på barns fornavn:");
+        System.out.println("2: søg på barns efternavn:");
+    }
+
+    public void findEmployeeMenu()
+    {
+        System.out.println("1: søg på medarbejders fornavn:");
+        System.out.println("2: søg på medarbejders efternavn:");
+    }
+
+    public void findParentMenu()
+    {
+        System.out.println("1: søg på forældres fornavn:");
+        System.out.println("2: søg på forældres efternavn:");
+    }
+
+    public void inputFirstName()
+    {
+        System.out.println("skriv fornavnet der skal søges på");
+    }
+
+    public void inputLastName()
+    {
+        System.out.println("skriv efternavnet der skal søges på");
+    }
+
+
+
 
 }

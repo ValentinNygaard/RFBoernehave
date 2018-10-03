@@ -125,5 +125,13 @@ public class EmployeeHandler {
             System.out.println(e.fileToString());
         }
     }
+
+    public void printTelephoneList()
+    {
+        for(Employee e : employeeList)
+        {
+            System.out.println(e.getFirstName() + " " + e.getLastName() + " " + e.getTelephoneNumber());
+        }
+    }
 }
 
