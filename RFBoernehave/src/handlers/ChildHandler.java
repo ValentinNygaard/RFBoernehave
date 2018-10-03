@@ -11,8 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ChildHandler {
-    public List<Child> childList = new ArrayList<Child>();
+    private List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
+    InputHandler input = new InputHandler();
 
     private ChildHandler()
     {
@@ -37,7 +38,7 @@ public class ChildHandler {
             int personId = Integer.parseInt(components[0]);
             String parentStringList = components[5];
 
-            childList.add(new Child(personId,components[1],components[2],components[3],components[4], parseParentString(parentStringList))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
+            childList.add(new Child(personId, components[1],components[2],components[3],components[4], parseParentString(parentStringList))); // addressHandler.getAddressByID(addressID) er en reference til addresseID i listen
         }
     }
 
@@ -74,9 +75,8 @@ public class ChildHandler {
         fileHandling.writeFile(sb.toString(),"data/childList.txt");
     }
 
-
-    public void addChild(int personId, String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
-        childList.add(new Child(personId,cprNumber,firstName,lastName,room,parents));
+    public void addChild(String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
+        childList.add(new Child(cprNumber,firstName,lastName,room,parents));
         // saveAddressList(); kan implementeres
     }
 
@@ -84,20 +84,16 @@ public class ChildHandler {
         UserDialog input = new UserDialog();
         Output output = new Output();
         output.askChildInfo();
-        int personId = childList.get(childList.size()-1).getPersonId()+1;
         String firstName = input.getFirstName();
         String lastName = input.getLastName();
         String cprNumber = input.getCprNumber();
-        //int telephoneNumber = input.getTelephoneNumber();
-        String room = "";
+        String room = "Ikke tildelt";
         ArrayList<Parent> parentList = new ArrayList<>();
         ParentHandler ph = ParentHandler.getParentHandler();
         parentList.add(ph.userCreate());
-        childList.add(new Child(personId,cprNumber,firstName,lastName,room,parentList));
+        childList.add(new Child(cprNumber,firstName,lastName,room,parentList));
         return childList.get(childList.size()-1);
     }
-
-
 
     public boolean deleteChild(int personId) {
         boolean delete = false;
@@ -128,7 +124,7 @@ public class ChildHandler {
         Child child = null;
         for(Child c : childList)
         {
-            if(c.getFirstName().equals(firstName))
+            if(c.getFirstName().equalsIgnoreCase(firstName))
             {
                 child = c;
                 return child;
@@ -141,12 +137,21 @@ public class ChildHandler {
         Child child = null;
         for(Child c : childList)
         {
-            if(c.getLastName().equals(lastName))
+            if(c.getLastName().equalsIgnoreCase(lastName))
             {
                 child = c;
                 return child;
             }
         }
         return child;
+    }
+
+    public void printTelephoneChildParentList()
+    {
+        for(Child c : childList)
+        {
+            System.out.println("Childs name: " + c.getFirstName() + " " + c.getLastName());
+            System.out.println(c.printParentsTelephone(c.getParents()));
+        }
     }
 }

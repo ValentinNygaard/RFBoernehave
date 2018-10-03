@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class AddressHandler {
 
-    public List<Address> addressList = new ArrayList<Address>();
+    private List<Address> addressList = new ArrayList<Address>();
+    InputHandler input = new InputHandler();
 
     private static AddressHandler instance;
 
@@ -49,20 +50,19 @@ public class AddressHandler {
         fileHandling.writeFile(sb.toString(),"data/addressList.txt");
     }
 
-    public void addAddress(int addressID, String streetName, String streetNumber, int postalCode, String city, String country) {
-        addressList.add(new Address(addressID,streetName,streetNumber,postalCode,city,country));
+    public void addAddress(String streetName, String streetNumber, int postalCode, String city, String country) {
+        addressList.add(new Address(streetName,streetNumber,postalCode,city,country));
        // saveAddressList(); kan implementeres
     }
 
     public Address userCreate() {
         UserDialog input = new UserDialog();
-        int addressID = addressList.get(addressList.size()-1).getAddressID()+1;
         String streetName = input.getStreetName();
         String streetNumber = input.getStreetNumber();
         int postalCode = input.getPostalCode();
         String city = input.getCity();
         String country = input.getCountry();
-        addressList.add(new Address(addressID,streetName,streetNumber,postalCode,city,country));
+        addressList.add(new Address(streetName,streetNumber,postalCode,city,country));
         return addressList.get(addressList.size()-1);
     }
 
@@ -96,4 +96,31 @@ public class AddressHandler {
             System.out.println(a.fileToString());
         }
     }
+
+    public void updateParentAddress(){
+        System.out.println("Skriv ny adresse");
+        System.out.println("Start med id");
+        AddressHandler ah = AddressHandler.getAddressHandler();
+        int adresseID = input.getInt("skriv tal");
+        Address address = ah.getAddressByID(adresseID); // finder adressen med det id
+        System.out.println("Skriv gadenavn");
+        String steetName = input.getString();
+        address.setStreetName(steetName);// ændre gadenavn
+        System.out.println("Skriv gadenummer");
+        int streetNumber = input.getInt("skriv nummer");
+        address.setStreetNumber(steetName);// ændre gadenummer
+        System.out.println("Skriv postnummer");
+        int postalCode = input.getInt("skriv nummer");
+        address.setPostalCode(postalCode);// ændre postnummer
+        System.out.println("Skriv Bynavn");
+        String city = input.getString();
+        address.setCity(city); // ændre byen
+        System.out.println("Skriv landekode");
+        String country = input.getString();
+        address.setCountry(country); // ændre land
+        ParentHandler ph = ParentHandler.getParentHandler();
+        Parent parent = ph.getParentByID(adresseID);
+        parent.setParentAddress(address);
+    }
+
 }

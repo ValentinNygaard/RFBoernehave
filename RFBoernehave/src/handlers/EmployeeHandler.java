@@ -4,13 +4,12 @@ import model.Address;
 import model.Employee;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeHandler {
 
-    public List<Employee> employeeList = new ArrayList<Employee>();
+    private List<Employee> employeeList = new ArrayList<Employee>();
     private static EmployeeHandler instance;
 
     private EmployeeHandler(){
@@ -51,8 +50,8 @@ public class EmployeeHandler {
         fileHandling.writeFile(sb.toString(),"data/employeeList.txt");
     }
 
-    public void addEmployee(int personId, String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
-        employeeList.add(new Employee(personId,cprNumber,firstName,lastName,telephoneNumber, employeeAddress));
+    public void addEmployee(String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
+        employeeList.add(new Employee(cprNumber,firstName,lastName,telephoneNumber, employeeAddress));
         // saveAddressList(); kan implementeres
     }
 
@@ -96,7 +95,7 @@ public class EmployeeHandler {
         Employee employee = null;
         for(Employee e : employeeList)
         {
-            if(e.getFirstName().equals(firstName))
+            if(e.getFirstName().equalsIgnoreCase(firstName))
             {
                 employee = e;
                 return employee;
@@ -109,7 +108,7 @@ public class EmployeeHandler {
         Employee employee = null;
         for(Employee e : employeeList)
         {
-            if(e.getLastName().equals(lastName))
+            if(e.getLastName().equalsIgnoreCase(lastName))
             {
                 employee = e;
                 return employee;
@@ -123,6 +122,14 @@ public class EmployeeHandler {
         for(Employee e : employeeList)
         {
             System.out.println(e.fileToString());
+        }
+    }
+
+    public void printTelephoneList()
+    {
+        for(Employee e : employeeList)
+        {
+            System.out.println(e.getFirstName() + " " + e.getLastName() + " " + e.getTelephoneNumber());
         }
     }
 }

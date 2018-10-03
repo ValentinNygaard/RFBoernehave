@@ -2,6 +2,7 @@ package model;
 
 public class Address {
 
+    private static int idCount = 8;
     private int addressID;
     private String streetName;
     private String streetNumber;
@@ -9,7 +10,25 @@ public class Address {
     private String city;
     private String country;
 
+    public Address(String streetName, String streetNumber, int postalCode, String city, String country) {
+        this.addressID = idCount;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+    }
+
     public Address(int addressID, String streetName, String streetNumber, int postalCode, String city, String country) {
+        this.addressID = addressID;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+    }
+
+    public void setAddress(int addressID, String streetName, String streetNumber, int postalCode, String city, String country){
         this.addressID = addressID;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
