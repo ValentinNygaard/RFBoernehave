@@ -10,9 +10,11 @@ import model.Parent;
 
 public class PersonCrudMenu {
     InputHandler input = new InputHandler();
+    Output output = new Output();
+    UserDialog ud = new UserDialog();
 
-    public void start(){
-        personCrudMenu();
+    public void personCrudMenu(){
+        start();
         int choice = input.getInt(0,8,"Du skal skrive et tal ", "tallet skal være imellem 0 og 8");
 
         if(choice == 0)
@@ -23,90 +25,45 @@ public class PersonCrudMenu {
         else if(choice == 1)
         {
             ChildHandler ch = ChildHandler.getChildHandler();
-            System.out.println("Skriv barnets fornavn");
-            String childName = input.getString();
-            Child child = ch.searchChildByFirstName(childName);
-            System.out.println("Ændre barnets stue til");
-            String room = input.getString();
-            child.setRoom(room);
-
+            Child child = ch.searchChildByFirstName(ud.getFirstName());
+            child.setRoom(ud.getRoom());
         }
         else if(choice == 2)
         {
-            System.out.println("Hvad vil du ændre");
-            System.out.println("1: Adresse");
-            System.out.println("2: Telefon");
+            output.changeParentInfo();
             int choiceTwo = input.getInt(1,2,"Du skal skrive et tal", "Tallet skal være mellem 1 og 2");
             if (choiceTwo == 1){
-                System.out.println("Skriv ny adresse");
-                System.out.println("Start med id");
                 AddressHandler ah = AddressHandler.getAddressHandler();
-                int adresseID = input.getInt("skriv tal"); // finder adressen med det id
-                Address address = ah.getAddressByID(adresseID);
-                System.out.println("Skriv gadenavn");
-                String steetName = input.getString();
-                address.setStreetName(steetName);// ændre gadenavn
-                System.out.println("Skriv gadenummer");
-                int streetNumber = input.getInt("skriv nummer");
-                address.setStreetNumber(steetName);// ændre gadenummer
-                System.out.println("Skriv postnummer");
-                int postalCode = input.getInt("skriv nummer");
-                address.setPostalCode(postalCode);// ændre postnummer
-                System.out.println("Skriv Bynavn");
-                String city = input.getString();
-                address.setCity(city); // ændre byen
-                System.out.println("Skriv landekode");
-                String country = input.getString();
-                address.setCountry(country); // ændre land
-
+                ah.updateParentAddress();
+                Address address = ah.getAddressByID(ud.getAddressId());
+                address.setAddress(ud.getAddressId(),ud.getStreetName(),ud.getStreetNumber(),ud.getPostalCode(),ud.getCity(),ud.getCountry());
                 ParentHandler ph = ParentHandler.getParentHandler();
-                Parent parent = ph.getParentByID(adresseID);
+                Parent parent = ph.getParentByID(ud.getAddressId());
                 parent.setParentAddress(address);
 
             } else if (choiceTwo == 2){
                 System.out.println("Start med ID på personen");
-                ParentHandler ph1 = ParentHandler.getParentHandler();
+                ParentHandler ph = ParentHandler.getParentHandler();
                 int telefonId = input.getInt("skriv tal");
-                Parent parentTwo = ph1.getParentByID(telefonId);
+                Parent parent = ph.getParentByID(telefonId);
                 System.out.println("Skriv nyt telefon nummer");
                 int parentTelephone = input.getInt("skriv tal");
-                parentTwo.setTelephoneNumber(parentTelephone); // ændre telefonnummeret på forældren
+                parent.setTelephoneNumber(parentTelephone); // ændre telefonnummeret på forældren
 
-                System.out.println(parentTwo.toString());
+               // System.out.println(parentTwo.toString());
             }
         }
         else if(choice == 3)
         {
-            System.out.println("Hvad vil du ændre");
-            System.out.println("1: Adresse");
-            System.out.println("2: Telefon");
+            output.changeEmployeeInfo();
             int choiceThree = input.getInt(1,2,"Du skal skrive et tal", "Tallet skal være mellem 1 og 2");
-
             if (choiceThree == 1){
-                System.out.println("Skriv ny adresse");
-                System.out.println("Start med id");
                 AddressHandler ah = AddressHandler.getAddressHandler();
-                int adresseID = input.getInt("skriv tal"); // finder adressen med det id
-                Address address = ah.getAddressByID(adresseID);
-                System.out.println("Skriv gadenavn");
-                String steetName = input.getString();
-                address.setStreetName(steetName);// ændre gadenavn
-                System.out.println("Skriv gadenummer");
-                int streetNumber = input.getInt("skriv nummer");
-                address.setStreetNumber(steetName);// ændre gadenummer
-                System.out.println("Skriv postnummer");
-                int postalCode = input.getInt("skriv nummer");
-                address.setPostalCode(postalCode);// ændre postnummer
-                System.out.println("Skriv Bynavn");
-                String city = input.getString();
-                address.setCity(city); // ændre byen
-                System.out.println("Skriv landekode");
-                String country = input.getString();
-                address.setCountry(country); // ændre land
-                System.out.println(address.toString());
-
+                ah.updateParentAddress();
+                Address address = ah.getAddressByID(ud.getAddressId());
+                address.setAddress(ud.getAddressId(),ud.getStreetName(),ud.getStreetNumber(),ud.getPostalCode(),ud.getCity(),ud.getCountry());
                 EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
-                Employee employee = eh.getAddressByID(adresseID);
+                Employee employee = eh.getAddressByID(ud.getAddressId());
                 employee.setEmployeeAddress(address);
             } else if (choiceThree == 2){
                 System.out.println("Start med ID på personen");
@@ -122,7 +79,7 @@ public class PersonCrudMenu {
         }
     }
 
-    public void personCrudMenu()
+    public void start()
     {
         System.out.println("Hvem vil du ændre?");
         System.out.println("0: Gå tilbage");
@@ -130,7 +87,4 @@ public class PersonCrudMenu {
         System.out.println("2: Forældre");
         System.out.println("3: Ansat");
     }
-
-
-
 }

@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class AddressHandler {
 
     private List<Address> addressList = new ArrayList<Address>();
+    InputHandler input = new InputHandler();
 
     private static AddressHandler instance;
 
@@ -96,4 +97,31 @@ public class AddressHandler {
             System.out.println(a.fileToString());
         }
     }
+
+    public void updateParentAddress(){
+        System.out.println("Skriv ny adresse");
+        System.out.println("Start med id");
+        AddressHandler ah = AddressHandler.getAddressHandler();
+        int adresseID = input.getInt("skriv tal");
+        Address address = ah.getAddressByID(adresseID); // finder adressen med det id
+        System.out.println("Skriv gadenavn");
+        String steetName = input.getString();
+        address.setStreetName(steetName);// ændre gadenavn
+        System.out.println("Skriv gadenummer");
+        int streetNumber = input.getInt("skriv nummer");
+        address.setStreetNumber(steetName);// ændre gadenummer
+        System.out.println("Skriv postnummer");
+        int postalCode = input.getInt("skriv nummer");
+        address.setPostalCode(postalCode);// ændre postnummer
+        System.out.println("Skriv Bynavn");
+        String city = input.getString();
+        address.setCity(city); // ændre byen
+        System.out.println("Skriv landekode");
+        String country = input.getString();
+        address.setCountry(country); // ændre land
+        ParentHandler ph = ParentHandler.getParentHandler();
+        Parent parent = ph.getParentByID(adresseID);
+        parent.setParentAddress(address);
+    }
+
 }

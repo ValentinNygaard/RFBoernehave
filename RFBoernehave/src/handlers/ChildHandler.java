@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class ChildHandler {
     private List<Child> childList = new ArrayList<Child>();
     private static ChildHandler instance;
+    InputHandler input = new InputHandler();
 
     private ChildHandler()
     {

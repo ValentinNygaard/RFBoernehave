@@ -56,5 +56,16 @@ public class UserDialog {
         return input.getString();
     }
 
+    public String getRoom(){
+        System.out.println("Ændre Stue til");
+        System.out.print("Stue:          ");
+        return  input.getString();
+    }
+
+    public int getAddressId(){
+        System.out.println("Id:          ");
+        return input.getInt("skriv tal");
+    }
+
 }
 

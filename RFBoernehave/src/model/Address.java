@@ -18,6 +18,15 @@ public class Address {
         this.country = country;
     }
 
+    public void setAddress(int addressID, String streetName, String streetNumber, int postalCode, String city, String country){
+        this.addressID = addressID;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+    }
+
     public String getCountry() {
         return country;
     }

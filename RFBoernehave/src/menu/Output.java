@@ -118,4 +118,15 @@ public class Output {
     {
         System.out.println("Navnet er ikke på listen");
     }
+
+    public void changeParentInfo(){
+        System.out.println("Hvad vil du ændre");
+        System.out.println("1: Adresse");
+        System.out.println("2: Telefon");
+    }
+    public void changeEmployeeInfo(){
+        System.out.println("Hvad vil du ændre");
+        System.out.println("1: Adresse");
+        System.out.println("2: Telefon");
+    }
 }
