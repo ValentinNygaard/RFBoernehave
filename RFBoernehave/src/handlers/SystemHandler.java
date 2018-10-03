@@ -4,6 +4,9 @@ import handlers.AddressHandler;
 import handlers.ChildHandler;
 import handlers.EmployeeHandler;
 import handlers.ParentHandler;
+import model.Person;
+
+import java.util.Scanner;
 
 public class SystemHandler {
 
@@ -13,6 +16,9 @@ public class SystemHandler {
         ParentHandler ph = ParentHandler.getParentHandler();
         EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
         ChildHandler ch = ChildHandler.getChildHandler();
+        FileHandling fh = new FileHandling();
+        Scanner sh = new Scanner(fh.readFile("data/systemdata.txt"));
+        Person.setIdCount(sh.nextInt());
     }
 
     public void shutDown()
@@ -25,6 +31,7 @@ public class SystemHandler {
         ph.saveParentList();
         eh.saveEmployeeList();
         ch.saveChildList();
+        //sace static var i fil
     }
 
     public void testPrint() {

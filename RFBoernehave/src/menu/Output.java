@@ -71,9 +71,11 @@ public class Output {
         printHeader();
         System.out.println();
         System.out.println("0: gå tilbage til start menu'en: ");
+        System.out.println();
         System.out.println("1: Find data om et barn:");
         System.out.println("2: Find data om en medarbejder:");
         System.out.println("3: Find data om en forældre");
+        System.out.println();
     }
 
     public void findChildMenu()
@@ -96,12 +98,12 @@ public class Output {
 
     public void inputFirstName()
     {
-        System.out.println("skriv fornavnet der skal søges på");
+        System.out.print("skriv fornavnet der skal søges på:");
     }
 
     public void inputLastName()
     {
-        System.out.println("skriv efternavnet der skal søges på");
+        System.out.print("skriv efternavnet der skal søges på:");
     }
 
     public void telephoneListMenu()
@@ -109,9 +111,12 @@ public class Output {
         printHeader();
         System.out.println();
         System.out.println("FIND PERSON");
+        System.out.println();
         System.out.println("0: gå tilbage til start menu'en: ");
+        System.out.println();
         System.out.println("1: udskriv telefonliste over medarbejdere:");
         System.out.println("2: udskriv telefonliste over børn og deres forældre:");
+        System.out.println();
     }
 
     public void nameNotFound()

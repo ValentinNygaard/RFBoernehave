@@ -5,6 +5,12 @@ public class Employee extends Person{
     private int telephoneNumber;
     private Address employeeAddress;
 
+    public Employee(String cprNumber, String firstName, String lastName, int telephoneNumber, Address employeeAddress) {
+        super(cprNumber, firstName, lastName);
+        this.telephoneNumber = telephoneNumber;
+        this.employeeAddress = employeeAddress;
+    }
+
     public Employee(int personId, String cprNumber, String firstName, String lastName, int telephoneNumber, Address employeeAddress) {
         super(personId, cprNumber, firstName, lastName);
         this.telephoneNumber = telephoneNumber;
