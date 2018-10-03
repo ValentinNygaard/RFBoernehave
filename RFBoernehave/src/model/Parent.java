@@ -7,6 +7,14 @@ public class Parent extends Person{
     private boolean isAddressParent;
     private boolean isCustodyParent;
 
+    public Parent(String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+        super(cprNumber, firstName, lastName);
+        this.parentAddress = parentAddress;
+        this.telephoneNumber = telephoneNumber;
+        this.isAddressParent = isAddressParent;
+        this.isCustodyParent = isCustodyParent;
+    }
+
     public Parent(int personId, String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
         super(personId, cprNumber, firstName, lastName);
         this.parentAddress = parentAddress;

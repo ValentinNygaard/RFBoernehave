@@ -5,7 +5,6 @@ import menu.UserDialog;
 import model.Address;
 import model.Parent;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -55,8 +54,8 @@ public class ParentHandler {
         fileHandling.writeFile(sb.toString(),"data/parentList.txt");
     }
 
-    public void addParent(int personId, String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
-        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
+    public void addParent(String cprNumber, String firstName, String lastName, Address parentAddress, int telephoneNumber, boolean isAddressParent, boolean isCustodyParent) {
+        parentList.add(new Parent(cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         // saveAddressList(); kan implementeres
     }
 
@@ -64,16 +63,15 @@ public class ParentHandler {
         UserDialog input = new UserDialog();
         Output output = new Output();
         output.askParentInfo();
-        int personId = parentList.get(parentList.size()-1).getPersonId()+1;
         String firstName = input.getFirstName();
         String lastName = input.getLastName();
         String cprNumber = input.getCprNumber();
         int telephoneNumber = input.getTelephoneNumber();
         AddressHandler ah = AddressHandler.getAddressHandler();
         Address parentAddress = ah.userCreate();
-        boolean isAddressParent = false;
-        boolean isCustodyParent = false;
-        parentList.add(new Parent(personId,cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
+        boolean isAddressParent = true;
+        boolean isCustodyParent = true;
+        parentList.add(new Parent(cprNumber,firstName,lastName,parentAddress,telephoneNumber,isAddressParent,isCustodyParent));
         return parentList.get(parentList.size()-1);
     }
 

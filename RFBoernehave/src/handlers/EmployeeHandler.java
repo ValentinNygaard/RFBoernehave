@@ -4,7 +4,6 @@ import model.Address;
 import model.Employee;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -51,8 +50,8 @@ public class EmployeeHandler {
         fileHandling.writeFile(sb.toString(),"data/employeeList.txt");
     }
 
-    public void addEmployee(int personId, String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
-        employeeList.add(new Employee(personId,cprNumber,firstName,lastName,telephoneNumber, employeeAddress));
+    public void addEmployee(String cprNumber, String firstName, String lastName, Address employeeAddress, int telephoneNumber) {
+        employeeList.add(new Employee(cprNumber,firstName,lastName,telephoneNumber, employeeAddress));
         // saveAddressList(); kan implementeres
     }
 
