@@ -1,5 +1,6 @@
 package handlers;
 
+import menu.UserDialog;
 import model.*;
 
 import java.util.ArrayList;
@@ -52,6 +53,19 @@ public class AddressHandler {
         addressList.add(new Address(addressID,streetName,streetNumber,postalCode,city,country));
        // saveAddressList(); kan implementeres
     }
+
+    public Address userCreate() {
+        UserDialog input = new UserDialog();
+        int addressID = addressList.get(addressList.size()-1).getAddressID()+1;
+        String streetName = input.getStreetName();
+        String streetNumber = input.getStreetNumber();
+        int postalCode = input.getPostalCode();
+        String city = input.getCity();
+        String country = input.getCountry();
+        addressList.add(new Address(addressID,streetName,streetNumber,postalCode,city,country));
+        return addressList.get(addressList.size()-1);
+    }
+
 
     public boolean deleteAddress(int addressID) {
         boolean delete = false;

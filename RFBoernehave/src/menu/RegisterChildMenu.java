@@ -1,9 +1,11 @@
 package menu;
 
 import com.sun.tools.javac.Main;
+import handlers.ChildHandler;
 import handlers.InputHandler;
 import handlers.SystemShutDown;
 import menu.*;
+import model.Child;
 
 public class RegisterChildMenu {
 
@@ -14,7 +16,7 @@ public class RegisterChildMenu {
     {
 
         output.registerChildMenu();
-        int choice = input.getInt(0,2,"Du skal skrive et tal ", "tallet skal være imellem 0 og 2");
+        int choice = input.getInt(0,2,"Du skal skrive et tal ", "Tallet skal være imellem 0 og 2");
         if(choice == 0)
         {
             MainMenu mm = new MainMenu();
@@ -22,8 +24,8 @@ public class RegisterChildMenu {
         }
         else if(choice == 1)
         {
-            RegisterChildMenu rg = new RegisterChildMenu();
-            rg.registerChildMenu();
+            ChildHandler ch = ChildHandler.getChildHandler();
+            ch.userCreate();
         }
         else if(choice == 2)
         {
@@ -32,6 +34,5 @@ public class RegisterChildMenu {
         }
 
     }
-
 
 }
