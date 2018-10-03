@@ -88,7 +88,7 @@ public class ChildHandler {
         String firstName = input.getFirstName();
         String lastName = input.getLastName();
         String cprNumber = input.getCprNumber();
-        int telephoneNumber = input.getTelephoneNumber();
+        //int telephoneNumber = input.getTelephoneNumber();
         String room = "";
         ArrayList<Parent> parentList = new ArrayList<>();
         ParentHandler ph = ParentHandler.getParentHandler();

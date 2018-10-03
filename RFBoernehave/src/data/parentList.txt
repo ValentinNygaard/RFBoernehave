@@ -1,3 +1,4 @@
 0,32145678,Erik,Sørensen,2,40618177,true,true
 1,43215678,Hanne,Sørensen,2,43657218,false,true
 2,76543289,Marianne,Pilverdier,5,75468325,true,true
+3,3108712000,Majken,Christensen,7,23232323,false,false
