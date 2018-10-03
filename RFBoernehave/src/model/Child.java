@@ -32,10 +32,10 @@ public class Child extends Person{
 
     public String fileToString()
     {
-        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," + room +","+ printParents();
+        return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," + room +","+ printParents(parents);
     }
 
-    private String printParents()
+    public String printParents(List<Parent> parents)
     {
         System.out.println("List size: " + parents.size());
         System.out.println("Hej: " + parents.get(0).getFirstName());
