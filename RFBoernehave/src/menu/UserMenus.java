@@ -74,6 +74,5 @@ public class UserMenus {
             WaitListMenu mm = new WaitListMenu();
             mm.waitListChildMenu();
         }
-
     }
 }

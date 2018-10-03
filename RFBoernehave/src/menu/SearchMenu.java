@@ -4,6 +4,9 @@ import handlers.ChildHandler;
 import handlers.EmployeeHandler;
 import handlers.InputHandler;
 import handlers.ParentHandler;
+import model.Child;
+import model.Employee;
+import model.Parent;
 
 public class SearchMenu {
 
@@ -12,7 +15,7 @@ public class SearchMenu {
     public void findPersonMenu()
     {
         Output output = new Output();
-        output.findParentMenu();
+        output.findPersonMenu();
         int choice = input.getInt(0,3,"Du skal skrive et tal ", "tallet skal være imellem 0 og 3");
 
         if(choice == 0)
@@ -28,15 +31,28 @@ public class SearchMenu {
 
             if(searchChoice == 1)
             {
+
                 output.inputFirstName();
                 String s = input.getString();
-                System.out.println(ch.searchChildByFirstName(s).fileToString());
+                Child child = ch.searchChildByFirstName(s);
+                if(child != null) {
+                    System.out.println(child.fileToString());
+                }
+                else{
+                    output.nameNotFound();
+                }
             }
             else if(searchChoice == 2)
             {
                 output.inputLastName();
                 String s = input.getString();
-                System.out.println(ch.searchChildByLastName(s).fileToString());
+                Child child = ch.searchChildByLastName(s);
+                if(child != null) {
+                    System.out.println(child.fileToString());
+                }
+                else{
+                    output.nameNotFound();
+                }
             }
             findPersonMenu();
         }
@@ -49,13 +65,29 @@ public class SearchMenu {
             {
                 output.inputFirstName();
                 String s = input.getString();
-                System.out.println(eh.searchEmployeeByFirstName(s).fileToString());
+                Employee employee = eh.searchEmployeeByFirstName(s);
+                if(employee!=null)
+                {
+                    System.out.println(employee.fileToString());
+                }
+                else
+                {
+                    output.nameNotFound();
+                }
             }
             else if(searchChoice == 2)
             {
                 output.inputLastName();
                 String s = input.getString();
-                System.out.println(eh.searchEmployeeByLastName(s).fileToString());
+                Employee employee = eh.searchEmployeeByLastName(s);
+                if(employee!=null)
+                {
+                    System.out.println(employee.fileToString());
+                }
+                else
+                {
+                    output.nameNotFound();
+                }
             }
             findPersonMenu();
         }
@@ -69,13 +101,21 @@ public class SearchMenu {
             {
                 output.inputFirstName();
                 String s = input.getString();
-                System.out.println(ph.searchParentByFirstName(s).fileToString());
+                Parent parent = ph.searchParentByFirstName(s);
+                if(parent!=null)
+                {
+                    System.out.println(parent.fileToString());
+                }
             }
             else if(searchChoice == 2)
             {
                 output.inputLastName();
                 String s = input.getString();
-                System.out.println(ph.searchParentByLastName(s).fileToString());
+                Parent parent = ph.searchParentByLastName(s);
+                if(parent!= null)
+                {
+                    System.out.println(parent.fileToString());
+                }
             }
             findPersonMenu();
         }

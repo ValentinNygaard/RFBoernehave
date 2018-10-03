@@ -24,7 +24,6 @@ public class TelephoneListMenu {
             EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
             eh.printTelephoneList();
             telephoneListMenu();
-
         }
         else if(choice == 2)
         {
