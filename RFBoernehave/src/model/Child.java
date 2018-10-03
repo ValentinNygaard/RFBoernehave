@@ -6,7 +6,7 @@ import java.util.List;
 public class Child extends Person{
 
     private String room;
-    private List<Parent> parents = new ArrayList<>(); //vi skal vælge en type af liste.
+    private List<Parent> parents = new ArrayList<Parent>(); //vi skal vælge en type af liste.
 
     public Child(int personId, String cprNumber, String firstName, String lastName, String room, List<Parent> parents) {
         super(personId, cprNumber, firstName, lastName);

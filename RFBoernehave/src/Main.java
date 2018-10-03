@@ -11,7 +11,7 @@ public class Main {
 
         sh.start();
         //sh.testPrint();
-        //um.mainMenu();
+        um.mainMenu();
         sh.shutDown();
 
     }

@@ -96,7 +96,7 @@ public class EmployeeHandler {
         Employee employee = null;
         for(Employee e : employeeList)
         {
-            if(e.getFirstName().equals(firstName))
+            if(e.getFirstName().equalsIgnoreCase(firstName))
             {
                 employee = e;
                 return employee;
@@ -109,7 +109,7 @@ public class EmployeeHandler {
         Employee employee = null;
         for(Employee e : employeeList)
         {
-            if(e.getLastName().equals(lastName))
+            if(e.getLastName().equalsIgnoreCase(lastName))
             {
                 employee = e;
                 return employee;

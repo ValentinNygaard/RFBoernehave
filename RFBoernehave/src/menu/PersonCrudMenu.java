@@ -129,7 +129,6 @@ public class PersonCrudMenu {
         System.out.println("1: Barn");
         System.out.println("2: Forældre");
         System.out.println("3: Ansat");
-
     }
 
 

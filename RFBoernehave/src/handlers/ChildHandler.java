@@ -129,7 +129,7 @@ public class ChildHandler {
         Child child = null;
         for(Child c : childList)
         {
-            if(c.getFirstName().equals(firstName))
+            if(c.getFirstName().equalsIgnoreCase(firstName))
             {
                 child = c;
                 return child;
@@ -142,7 +142,7 @@ public class ChildHandler {
         Child child = null;
         for(Child c : childList)
         {
-            if(c.getLastName().equals(lastName))
+            if(c.getLastName().equalsIgnoreCase(lastName))
             {
                 child = c;
                 return child;
