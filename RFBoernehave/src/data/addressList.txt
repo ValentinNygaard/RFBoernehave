@@ -4,3 +4,4 @@
 4,Branteviksgatan,14B,21441,Malmø,SE
 5,Skriverhusene,1,2620,Albertslund,DK
 6,Larsens gade,1,1000,København K,DK
+7,Ydunsgade,3,2200,KBH N,DK
