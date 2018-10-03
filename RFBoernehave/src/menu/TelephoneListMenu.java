@@ -11,7 +11,7 @@ public class TelephoneListMenu {
     public void telephoneListMenu()
     {
         Output output = new Output();
-        output.telephoneListMenu();
+        output.telephoneListMenu(); //lav metoden
         int choice = input.getInt(0,2,"Du skal skrive et tal ", "tallet skal være imellem 0 og 2");
 
         if(choice == 0)

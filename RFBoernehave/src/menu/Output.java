@@ -94,7 +94,12 @@ public class Output {
         System.out.println("skriv efternavnet der skal søges på");
     }
 
-
-
-
+    public void telephoneListMenu()
+    {
+        printHeader();
+        System.out.println();
+        System.out.println("0: gå tilbage til start menu'en: ");
+        System.out.println("1: udskriv telefonliste over medarbejdere:");
+        System.out.println("2: udskriv telefonliste over børn og deres forældre:");
+    }
 }
