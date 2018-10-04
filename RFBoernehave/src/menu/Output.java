@@ -4,6 +4,8 @@ public class Output {
 
     public void printHeader()
     {
+        System.out.println();
+        System.out.println();
         System.out.println("______          _    _ _     _         __      _        _                     _                     ");
         System.out.println("| ___ \\        | |  (_) |   | |       / _|    (_)      | |                   | |                    ");
         System.out.println("| |_/ /___  ___| | ___| | __| | ___  | |_ _ __ _  ___  | |__  _ __ _ __   ___| |__   __ ___   _____ ");
@@ -16,6 +18,7 @@ public class Output {
     public void startMenu()
     {
         printHeader();
+        System.out.println();
         System.out.println("HOVEDMENU");
         System.out.println();
         System.out.println("0: Gem ændringer og luk systemet ned:");
@@ -41,10 +44,10 @@ public class Output {
         System.out.println();
         System.out.println("INDSKRIV BARN");
         System.out.println();
-        System.out.println("0: Retur til hovedmenu:");
+        System.out.println("0: Gå tilbage til hovedmenu");
         System.out.println();
-        System.out.println("1: Opret nyt barn:");
-        System.out.println("2: Indskriv barn fra venteliste:");
+        System.out.println("1: Opret nyt barn");
+        System.out.println("2: Indskriv barn fra venteliste");
         System.out.println();
     }
 
@@ -75,52 +78,71 @@ public class Output {
     {
         printHeader();
         System.out.println();
-        System.out.println("0: gå tilbage til start menu'en: ");
+        System.out.println("FIND PERSON MENU");
         System.out.println();
-        System.out.println("1: Find data om et barn:");
-        System.out.println("2: Find data om en medarbejder:");
-        System.out.println("3: Find data om en forældre");
+        System.out.println("0: Gå tilbage til hovedmenu");
+        System.out.println();
+        System.out.println("1: Find data om et barn");
+        System.out.println("2: Find data om en medarbejder");
+        System.out.println("3: Find data om en forældrer");
         System.out.println();
     }
 
     public void findChildMenu()
     {
-        System.out.println("1: søg på barns fornavn:");
-        System.out.println("2: søg på barns efternavn:");
+        System.out.println("1: Søg på barns fornavn");
+        System.out.println("2: Søg på barns efternavn");
     }
 
     public void findEmployeeMenu()
     {
-        System.out.println("1: søg på medarbejders fornavn:");
-        System.out.println("2: søg på medarbejders efternavn:");
+        System.out.println("1: Søg på medarbejders fornavn");
+        System.out.println("2: Søg på medarbejders efternavn");
     }
 
     public void findParentMenu()
     {
-        System.out.println("1: søg på forældres fornavn:");
-        System.out.println("2: søg på forældres efternavn:");
+        System.out.println("1: Søg på forældres fornavn");
+        System.out.println("2: Søg på forældres efternavn");
     }
 
     public void inputFirstName()
     {
-        System.out.print("skriv fornavnet der skal søges på:");
+        System.out.print("Skriv fornavnet der skal søges på: ");
     }
 
     public void inputLastName()
     {
-        System.out.print("skriv efternavnet der skal søges på:");
+        System.out.print("Skriv efternavnet der skal søges på: ");
     }
 
     public void telephoneListMenu()
     {
         printHeader();
         System.out.println();
-        System.out.println("FIND PERSON");
+        System.out.println("TELEFONLISTE MENU");
         System.out.println();
-        System.out.println("0: gå tilbage til start menu'en: ");
+        System.out.println("0: Gå tilbage til hovedmenu");
         System.out.println();
-        System.out.println("1: udskriv telefonliste over medarbejdere:");
-        System.out.println("2: udskriv telefonliste over børn og deres forældre:");
+        System.out.println("1: Udskriv telefonliste over medarbejdere");
+        System.out.println("2: Udskriv telefonliste over børn og deres forældre");
+        System.out.println();
+    }
+
+    public void telephoneListEmployee(){
+        System.out.println();
+        System.out.println("TELEFONLISTE OVER ANSATTE");
+        System.out.println();
+    }
+
+    public void telephoneListEmployeeTableHeader(){
+        System.out.println("Navn                Telefonmummer");
+        System.out.println("---------------------------------");
+    }
+
+    public void telephoneListChildParent(){
+        System.out.println();
+        System.out.println("TELEFONLISTE OVER BØRN OG DERES FORÆLDRE");
         System.out.println();
     }
 

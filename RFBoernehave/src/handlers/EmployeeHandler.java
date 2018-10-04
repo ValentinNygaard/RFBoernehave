@@ -1,5 +1,6 @@
 package handlers;
 
+import menu.Output;
 import model.Address;
 import model.Employee;
 
@@ -8,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeHandler {
+
+    private Output output = new Output();
 
     private List<Employee> employeeList = new ArrayList<Employee>();
     private static EmployeeHandler instance;
@@ -127,9 +130,12 @@ public class EmployeeHandler {
 
     public void printTelephoneList()
     {
+        output.telephoneListEmployee();
+        output.telephoneListEmployeeTableHeader();
         for(Employee e : employeeList)
         {
-            System.out.println(e.getFirstName() + " " + e.getLastName() + " " + e.getTelephoneNumber());
+            System.out.println(e.toStringTelephoneList());
+            //System.out.println((e.getFirstName() + " " + e.getLastName()) + " " + e.getTelephoneNumber());
         }
     }
 }

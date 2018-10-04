@@ -65,7 +65,6 @@ public class UserMenus {
 
     private void telephoneListMenu()
     {
-        Output output = new Output();
         output.telephoneListMenu(); //lav metoden
         int choice = ud.getChoice(0,2);
 

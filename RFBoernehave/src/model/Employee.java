@@ -37,4 +37,8 @@ public class Employee extends Person{
     {
         return super.getPersonId()+ "," +super.getCprNumber()+"," +super.getFirstName()+"," +super.getLastName()+"," + telephoneNumber + "," + employeeAddress.getAddressID();
     }
+    public String toStringTelephoneList() {
+        return String.format("%-20s%10d", super.getFirstName()+ " " +super.getLastName(),telephoneNumber);
+    }
+
 }
