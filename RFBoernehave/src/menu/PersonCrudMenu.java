@@ -34,7 +34,6 @@ public class PersonCrudMenu {
             int choiceTwo = input.getInt(1,2,"Du skal skrive et tal", "Tallet skal være mellem 1 og 2");
             if (choiceTwo == 1){
                 AddressHandler ah = AddressHandler.getAddressHandler();
-                ah.updateParentAddress();
                 Address address = ah.getAddressByID(ud.getAddressId());
                 address.setAddress(ud.getAddressId(),ud.getStreetName(),ud.getStreetNumber(),ud.getPostalCode(),ud.getCity(),ud.getCountry());
                 ParentHandler ph = ParentHandler.getParentHandler();
@@ -59,7 +58,6 @@ public class PersonCrudMenu {
             int choiceThree = input.getInt(1,2,"Du skal skrive et tal", "Tallet skal være mellem 1 og 2");
             if (choiceThree == 1){
                 AddressHandler ah = AddressHandler.getAddressHandler();
-                ah.updateParentAddress();
                 Address address = ah.getAddressByID(ud.getAddressId());
                 address.setAddress(ud.getAddressId(),ud.getStreetName(),ud.getStreetNumber(),ud.getPostalCode(),ud.getCity(),ud.getCountry());
                 EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
