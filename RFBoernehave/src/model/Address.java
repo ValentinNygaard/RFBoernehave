@@ -37,6 +37,16 @@ public class Address {
         this.country = country;
     }
 
+    public static void setIdCount(int i)
+    {
+        idCount = i;
+    }
+
+    public static int getIdCount()
+    {
+        return idCount;
+    }
+
     public String getCountry() {
         return country;
     }

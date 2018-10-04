@@ -24,6 +24,10 @@ public abstract class Person {
         idCount++;
     }
 
+    public static int getIdCount()
+    {
+        return idCount;
+    }
     public static void setIdCount(int i)
     {
         idCount = i;
