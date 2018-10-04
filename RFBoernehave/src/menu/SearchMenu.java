@@ -20,8 +20,8 @@ public class SearchMenu {
 
         if(choice == 0)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.start();
+            UserMenus mainMenu = new UserMenus();
+            mainMenu.mainMenu();
         }
         else if(choice == 1)
         {

@@ -19,8 +19,8 @@ public class PersonCrudMenu {
 
         if(choice == 0)
         {
-            MainMenu mm = new MainMenu();
-            mm.start();
+            UserMenus mainMenu = new UserMenus();
+            mainMenu.mainMenu();
         }
         else if(choice == 1)
         {

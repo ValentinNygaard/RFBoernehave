@@ -4,8 +4,8 @@ import handlers.*;
 
 public class UserMenus {
 
-    Output output = new Output();
-    UserDialog ud = new UserDialog();
+    private Output output = new Output();
+    private UserDialog ud = new UserDialog();
 
     public void mainMenu()
     {
@@ -19,40 +19,28 @@ public class UserMenus {
             }
             else if(choice == 1)
                 registerChildMenu();
-            else if(choice == 2)
-            {
-                WaitListMenu mm = new WaitListMenu();
-                mm.waitListChildMenu();
+            else if(choice == 2) {
+                output.underConstruction();
             }
-            else if(choice == 3)
-            {
-                WorkScheduleMenu wm = new WorkScheduleMenu();
-                wm.showWorkScheduleMenu();
+            else if(choice == 3) {
+                output.underConstruction();
             }
-            else if(choice == 4)
-            {
+            else if(choice == 4) {
                 SearchMenu sm = new SearchMenu();
                 sm.findPersonMenu();
             }
-            else if(choice == 5)
-            {
-                TelephoneListMenu tm = new TelephoneListMenu();
-                tm.telephoneListMenu();
+            else if(choice == 5) {
+                telephoneListMenu();
             }
-            else if(choice == 6)
-            {
+            else if(choice == 6) {
                 PersonCrudMenu pm = new PersonCrudMenu();
                 pm.personCrudMenu();
             }
-            else if(choice == 7)
-            {
-                ScheduleAdministrationMenu sam = new ScheduleAdministrationMenu();
-                sam.scheduleAdministrationMenu();
+            else if(choice == 7) {
+                output.underConstruction();
             }
-            else if(choice == 8)
-            {
-                WaitListAdministration wam = new WaitListAdministration();
-                wam.waitListAdministration();
+            else if(choice == 8) {
+                output.underConstruction();
             }
         }
 
@@ -62,17 +50,38 @@ public class UserMenus {
     {
         output.registerChildMenu();
         int choice = ud.getChoice(0,2);
-        if(choice == 0) {} // Do nothing and return to mainMenu
-        else if(choice == 1)
-        {
+        if(choice == 0) {
+            mainMenu();
+        } // Do nothing and return to mainMenu
+        else if(choice == 1) {
             output.registerChild();
             ChildHandler ch = ChildHandler.getChildHandler();
             ch.userCreate();
         }
-        else if(choice == 2)
-        {
-            WaitListMenu mm = new WaitListMenu();
-            mm.waitListChildMenu();
+        else if(choice == 2) {
+            output.underConstruction();
         }
     }
+
+    private void telephoneListMenu()
+    {
+        Output output = new Output();
+        output.telephoneListMenu(); //lav metoden
+        int choice = ud.getChoice(0,2);
+
+        if(choice == 0) {
+            mainMenu();
+        }
+        else if(choice == 1) {
+            EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
+            eh.printTelephoneList();
+            telephoneListMenu();
+        }
+        else if(choice == 2) {
+            ChildHandler ch = ChildHandler.getChildHandler();
+            ch.printTelephoneChildParentList();
+            telephoneListMenu();
+        }
+    }
+
 }

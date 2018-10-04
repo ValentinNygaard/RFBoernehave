@@ -32,6 +32,11 @@ public class Output {
         System.out.println();
     }
 
+    public void underConstruction(){
+        System.out.println();
+        System.out.println("DENNE DEL AF SYSTEMET ER UNDER UDVIKLING OG PT. IKKE TILGÆNGELIG");
+    }
+
     public void registerChildMenu(){
         System.out.println();
         System.out.println("INDSKRIV BARN");
