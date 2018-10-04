@@ -43,7 +43,6 @@ public class UserMenus {
                 output.underConstruction();
             }
         }
-
     }
 
     private void registerChildMenu()
@@ -69,7 +68,6 @@ public class UserMenus {
         int choice = ud.getChoice(0,2);
 
         if(choice == 0) {
-            mainMenu();
         }
         else if(choice == 1) {
             EmployeeHandler eh = EmployeeHandler.getEmployeeHandler();
@@ -82,5 +80,4 @@ public class UserMenus {
             telephoneListMenu();
         }
     }
-
 }

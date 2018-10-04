@@ -19,10 +19,7 @@ public class SearchMenu {
         int choice = input.getInt(0,3,"Du skal skrive et tal ", "tallet skal være imellem 0 og 3");
 
         if(choice == 0)
-        {
-            UserMenus mainMenu = new UserMenus();
-            mainMenu.mainMenu();
-        }
+        { }
         else if(choice == 1)
         {
             output.findChildMenu();
@@ -117,7 +114,6 @@ public class SearchMenu {
                     System.out.println(parent.fileToString());
                 }
             }
-            findPersonMenu();
         }
     }
 }

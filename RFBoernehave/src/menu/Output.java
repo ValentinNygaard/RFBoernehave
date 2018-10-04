@@ -156,6 +156,7 @@ public class Output {
         System.out.println("1: Adresse");
         System.out.println("2: Telefon");
     }
+
     public void changeEmployeeInfo(){
         System.out.println("Hvad vil du ændre");
         System.out.println("1: Adresse");
